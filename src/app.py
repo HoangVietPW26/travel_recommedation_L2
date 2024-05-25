@@ -1,9 +1,10 @@
 from fastapi import FastAPI
 from fastapi.routing import APIRouter
 
-from routes.recommendation_management.recommendation import (
+from src.routes.recommendation_management.recommendation import (
     router as recommendation_router
 )
+
 
 app = FastAPI()
 api_router = APIRouter()

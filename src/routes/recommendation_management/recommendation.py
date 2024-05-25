@@ -1,12 +1,13 @@
 from fastapi import APIRouter, Depends
 
-from schemas.recommendation import (
+from src.schemas.recommendation import (
     RecommendationRequest,
     RecommendationResponse
 )
-from services.recommendation.recommendation import (
+from src.services.recommendation.recommendation import (
     process_get_recommendation
 )
+
 
 router = APIRouter()
 

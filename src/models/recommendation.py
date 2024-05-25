@@ -1,17 +1,19 @@
 from openai import OpenAI
-from config import Configuration
+from src.config import Configuration
+
 
 OPENAI_API_KEY = Configuration.OPENAI_API_KEY
 OPENAI_MODEL = Configuration.OPENAI_MODEL
+
 
 class OpenAIRecommendator:
 
     def __init__(self, api_key=OPENAI_API_KEY) -> None:
         self.client = OpenAI(api_key=api_key)
 
-    def give_recommendation(self, prompt):
+    async def give_recommendation(self, prompt):
         
-        response= self.client.chat.completions.create(
+        response = self.client.chat.completions.create(
             model=OPENAI_MODEL,
             messages=[
                 {"role": "user", "content": prompt}
