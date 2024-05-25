@@ -2,7 +2,7 @@ from os import environ
 from dotenv import dotenv_values
 
 env_values = {
-    **dotenv_values,
+    **dotenv_values(),
     **environ
 }
 
@@ -17,4 +17,4 @@ class Configuration:
     """
 
     APP_HOST = env_values.get("APP_HOST", "127.0.0.1")
-    APP_PORT = env_values.get("APP_PORT", 3000)
+    APP_PORT = int(env_values.get("APP_PORT", 3000))
