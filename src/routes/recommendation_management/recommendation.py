@@ -1,8 +1,11 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends
 
 from schemas.recommendation import (
     RecommendationRequest,
     RecommendationResponse
+)
+from services.recommendation.recommendation import (
+    process_get_recommendation
 )
 
 router = APIRouter()
@@ -16,8 +19,11 @@ REC = [
 
 @router.get("/recommendation", response_model=RecommendationResponse)
 async def get_recommendation(req: RecommendationRequest = Depends()):
+
+    rec = process_get_recommendation(req)
+
     return RecommendationResponse(
         country=req.country,
         season=req.season,
-        recommendations=REC
+        recommendations=[str(rec)]
     )

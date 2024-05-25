@@ -18,3 +18,4 @@ class Configuration:
 
     APP_HOST = env_values.get("APP_HOST", "127.0.0.1")
     APP_PORT = int(env_values.get("APP_PORT", 3000))
+    OPENAI_API_KEY = env_values.get("OPENAI_API_KEY", "")
