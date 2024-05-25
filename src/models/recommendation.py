@@ -2,6 +2,7 @@ from openai import OpenAI
 from config import Configuration
 
 OPENAI_API_KEY = Configuration.OPENAI_API_KEY
+OPENAI_MODEL = Configuration.OPENAI_MODEL
 
 class OpenAIRecommendator:
 
@@ -10,12 +11,15 @@ class OpenAIRecommendator:
 
     def give_recommendation(self, prompt):
         
-        completion = self.client.chat.completions.create(
-            model="gpt-3.5-turbo",
+        response= self.client.chat.completions.create(
+            model=OPENAI_MODEL,
             messages=[
                 {"role": "user", "content": prompt}
-            ]
+            ],
+            n=1,
+            timeout=10
         )
-        recommendations = completion.choices[0].message.content
-        
+
+        recommendations = response.choices[0].message.content
+
         return recommendations

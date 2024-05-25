@@ -10,20 +10,13 @@ from services.recommendation.recommendation import (
 
 router = APIRouter()
 
-REC = [
-    'Eat Vietnamese Pho',
-    'Go camping in Ba Vi',
-    'Have Picnic in Moc Chau'
-]
-
-
 @router.get("/recommendation", response_model=RecommendationResponse)
-async def get_recommendation(req: RecommendationRequest = Depends()):
+async def get_recommendations(req: RecommendationRequest = Depends()):
 
-    rec = process_get_recommendation(req)
+    recommendations = await process_get_recommendation(req)
 
     return RecommendationResponse(
         country=req.country,
         season=req.season,
-        recommendations=[str(rec)]
+        recommendations=recommendations
     )
