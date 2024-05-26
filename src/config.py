@@ -16,7 +16,7 @@ class Configuration:
         env_values.get('VARIABLE_NAME', VALUE)
     """
 
-    APP_HOST = env_values.get("APP_HOST", "127.0.0.1")
+    APP_HOST = env_values.get("APP_HOST", "0.0.0.0")
     APP_PORT = int(env_values.get("APP_PORT", 3000))
     OPENAI_API_KEY = env_values.get("OPENAI_API_KEY", "")
-    OPENAI_MODEL = env_values.get("OPENAI_MODEL", "")
+    OPENAI_MODEL = env_values.get("OPENAI_MODEL", "gpt-3.5-turbo")
