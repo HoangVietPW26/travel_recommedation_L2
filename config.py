@@ -4,7 +4,7 @@ from dotenv import dotenv_values
 
 env_values = {
     **dotenv_values(".env"),
-    # **environ
+    **environ
 }
 
 class Configuration:
@@ -17,9 +17,7 @@ class Configuration:
         env_values.get('VARIABLE_NAME', VALUE)
     """
     
-    print(env_values)
     APP_HOST = env_values.get("APP_HOST", "0.0.0.0")
-    print(APP_HOST)
     APP_PORT = int(env_values.get("APP_PORT", 3000))
     OPENAI_API_KEY = env_values.get("OPENAI_API_KEY", "")
     OPENAI_MODEL = env_values.get("OPENAI_MODEL", "gpt-3.5-turbo")
