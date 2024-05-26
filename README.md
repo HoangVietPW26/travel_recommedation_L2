@@ -10,7 +10,7 @@
 
 ## 2. Setup environment variables
 * Go to your project folder
-* Create `.env` file based on `.env.example`: `cp .env.example .env` on `Linux/MacOS`
+* Create `.env` with variables file based on `.env.example`
 * Update the variables inside `.env` with the correct values
 * Remember to ask for the `OPENAI_API_KEY` and add it inside your `.env` file.
 
