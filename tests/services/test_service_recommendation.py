@@ -10,13 +10,10 @@ class TestProcessGetRecommendation(unittest.TestCase):
     @patch('src.models.recommendation.OpenAIRecommendator')
     @patch('src.services.utils.parsing_recommendation')
     async def test_process_get_recommendation(self, mock_parsing_recommendation, mock_openai_recommender):
+
         # Arrange
-        mock_recommendation =  [
-            "1. Picnic",
-            "2. Swimming",
-            "3. Playing football"
-        ]
-        mock_parsed_recommendation = ['Hiking', 'Camping', 'Fishing']
+        mock_recommendation =  "1. Picnic\n2. Swimming\n3. Playing football"
+        mock_parsed_recommendation = ['1. Picnic', '2. Swimming', '3. Playing football']
         mock_openai_recommender.return_value.give_recommendation.return_value = mock_recommendation
         mock_parsing_recommendation.return_value = mock_parsed_recommendation
 
