@@ -1,5 +1,5 @@
 from openai import OpenAI
-from src.config import Configuration
+from config import Configuration
 
 
 OPENAI_API_KEY = Configuration.OPENAI_API_KEY
