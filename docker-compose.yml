@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  
+  recommendation-app:
+    build: .
+    ports:
+      - 3000:3000
+    environment:
+      - PYTHONPATH=.
+      - APP_HOST=${APP_HOST}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - OPENAI_MODEL=${OPENAI_MODEL}
