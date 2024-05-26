@@ -25,7 +25,7 @@
     - `pip install -r requirements.txt` for `Linux/MacOS`. 
     - For `Windows`, comment `uvloop==0.19.0` in  `requirements.txt` file before run `pip install -r requirements.txt`.
 * Setup `PYTHONPATH` variable `export PYTHONPATH=$(pwd)`.
-* Run: `python src/server.py`
+* Run: `python server.py`
 * Go to `http://localhost:3000/docs` to access web pages UI
 
 ## 3.2 Run using Docker
@@ -39,7 +39,7 @@
 * Note: `docker-compose` will not watch for file changes, so each time you change some files, you need to run `docker-compose build` again
 
 ## 4. Run unit test
-* Run unit test with `pytest src/tests`
+* Run unit test with `pytest tests`
 
 ## 5. Using the API
 
