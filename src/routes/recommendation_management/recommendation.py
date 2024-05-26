@@ -12,7 +12,9 @@ from src.services.recommendation.recommendation import (
 router = APIRouter()
 
 @router.get("/recommendation", response_model=RecommendationResponse)
-async def get_recommendations(req: RecommendationRequest = Depends()):
+async def get_recommendations(
+            req: RecommendationRequest = Depends()
+        ) -> RecommendationResponse:
 
     recommendations = await process_get_recommendation(req)
 
