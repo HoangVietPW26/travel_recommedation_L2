@@ -11,7 +11,7 @@ class OpenAIRecommendator:
     def __init__(self, api_key=OPENAI_API_KEY) -> None:
         self.client = OpenAI(api_key=api_key)
 
-    async def give_recommendation(self, prompt: str) -> str:
+    def give_recommendation(self, prompt: str) -> str:
         
         response = self.client.chat.completions.create(
             model=OPENAI_MODEL,
