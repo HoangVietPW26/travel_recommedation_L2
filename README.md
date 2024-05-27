@@ -9,13 +9,13 @@
 * Go to your project folder `cd travel_recommendation_L2`, you should see `src` folder if you are at correct place.
 
 ## 2. Setup environment variables
-* Go to your project folder
+* Go to your project folder, you should see `src` folder if you are at correct place.
 * Create `.env` with variables file based on `.env.example`
 * Update the variables inside `.env` with the correct values
 * Remember to ask for the `OPENAI_API_KEY` and add it inside your `.env` file.
 
 ## 3.1 Run using Python
-* Go to your project folder
+* Go to your project folder,, you should see `src` folder if you are at correct place.
 * Create enviroment `python -m venv venv`, a folder `venv` will be created
 * Activate the environment:
     - `. venv/bin/activate` for `Linux/MacOS`.
@@ -39,6 +39,9 @@
 * Note: `docker-compose` will not watch for file changes, so each time you change some files, you need to run `docker-compose build` again
 
 ## 4. Run unit test
+* Go to your project folder, , you should see `src` folder if you are at correct place.
+* Remember to activate the environment like in step 3.1
+* Setup `PYTHONPATH` variable `export PYTHONPATH=$(pwd)`.
 * Run unit test with `pytest tests`
 
 ## 5. Using the API
