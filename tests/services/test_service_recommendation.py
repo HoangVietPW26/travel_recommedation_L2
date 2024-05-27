@@ -7,9 +7,9 @@ from src.services.recommendation.recommendation import process_get_recommendatio
 
 class TestProcessGetRecommendation(unittest.TestCase):
 
-    @patch('src.models.recommendation.OpenAIRecommendator')
-    @patch('src.services.utils.parsing_recommendation')
-    async def test_process_get_recommendation(self, mock_parsing_recommendation, mock_openai_recommender):
+    @patch('src.services.recommendation.recommendation.OpenAIRecommendator')
+    @patch('src.services.recommendation.recommendation.parsing_recommendation')
+    def test_process_get_recommendation(self, mock_parsing_recommendation, mock_openai_recommender):
 
         # Arrange
         mock_recommendation =  "1. Picnic\n2. Swimming\n3. Playing football"
@@ -18,10 +18,10 @@ class TestProcessGetRecommendation(unittest.TestCase):
         mock_parsing_recommendation.return_value = mock_parsed_recommendation
 
         req = RecommendationRequest(country='USA', season='summer')
-        expected_prompt = "Recommend three things to do in USA during Summer, just recommendations, no explaination."
+        expected_prompt = "Recommend three things to do in USA during summer, just recommendations, no explaination."
 
         # Act
-        recommendations = await process_get_recommendation(req)
+        recommendations = process_get_recommendation(req)
 
         # Assert
         self.assertEqual(recommendations, mock_parsed_recommendation)

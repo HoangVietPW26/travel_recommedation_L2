@@ -7,8 +7,8 @@ from src.models.recommendation import OpenAIRecommendator
 
 class TestOpenAIRecommendator(unittest.TestCase):
 
-    @patch('openai.OpenAI')
-    async def test_give_recommendation(self, mock_openai):
+    @patch('src.models.recommendation.OpenAI')
+    def test_give_recommendation(self, mock_openai):
         # Arrange
         mock_response = Mock()
         mock_response.choices = [Mock(message=Mock(content='Recommendations: Hiking, Camping, Fishing'))]
@@ -19,7 +19,7 @@ class TestOpenAIRecommendator(unittest.TestCase):
 
         # Act
         recommender = OpenAIRecommendator()
-        recommendations = await recommender.give_recommendation(prompt)
+        recommendations = recommender.give_recommendation(prompt)
 
         # Assert
         self.assertEqual(recommendations, expected_recommendations)
