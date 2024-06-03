@@ -38,11 +38,20 @@
 * To stop: `docker-compose down`
 * Note: `docker-compose` will not watch for file changes, so each time you change some files, you need to run `docker-compose build` again
 
+## 3.2 Run using Makefile
+* Go to your project folder `cd travel_recommendation_L2`, you should see `makefile` file if you are at correct place.
+* Install `docker-compose`. If you installed `Docker Desktop` above, you do not have to do this
+* Ensure that `.env` file is setup and has correct values
+* Build the image: `make build`
+* Run: `make up` for detached run
+* Go to `http://localhost:3000/docs` to access web pages UI
+* To stop: `make down`
+
 ## 4. Run unit test
 * Go to your project folder, , you should see `src` folder if you are at correct place.
 * Remember to activate the environment like in step 3.1
-* Setup `PYTHONPATH` variable `export PYTHONPATH=$(pwd)`.
-* Run unit test with `pytest tests`
+* Setup `PYTHONPATH` variable `export PYTHONPATH=$(pwd)`
+* Run unit test with `pytest tests` or `make test`
 
 ## 5. Using the API
 
