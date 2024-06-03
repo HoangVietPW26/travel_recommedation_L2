@@ -14,5 +14,4 @@ restart:
 		docker-compose -f docker-compose.yml stop $(c)
 		docker-compose -f docker-compose.yml up -d $(c)
 test:
-		PYTHONPATH=.
 		pytest tests
